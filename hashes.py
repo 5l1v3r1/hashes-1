@@ -31,6 +31,8 @@ class MainWindow(Tk):
             'en_sha512' : IntVar(),
         }
 
+        self.bind("<Escape>", self.exit) # Press ESC to quit app
+
         # Set default values
         if platform.system() == 'Windows':
             self.options['file'].set('C:\\Users\\' + getpass.getuser() + '\\Desktop\\' )
@@ -176,6 +178,10 @@ class MainWindow(Tk):
                 hasher.update(buf)
                 buf = afile.read(BLOCKSIZE)
         return hasher.hexdigest()
+
+    def exit(self, event):
+        # This is a work around to avoid a debug message that shows a key was pressed and executed the close command.
+        self.destroy()
 
 main = MainWindow()
 main.mainloop()

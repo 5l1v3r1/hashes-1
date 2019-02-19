@@ -3,14 +3,18 @@ import os, sys, platform, getpass, hashlib
 from tkinter import *
 from tkinter.ttk import *
 from tkinter.filedialog import askopenfilename # Import filedialog
+from ttkthemes import ThemedStyle
 
 class MainWindow(Tk):
     def __init__(self):
         Tk.__init__(self)
         self.title(string = "Hashes") # Set window title
         self.resizable(0,0) # Do not allow to be resized
-        self.style = Style() # Enable themes
-        self.style.theme_use("clam") # Theme name
+        #self.style = Style() # Enable themes
+        #self.style.theme_use("clam") # Theme name
+        self.ttkStyle = ThemedStyle()
+        self.ttkStyle.set_theme("arc")
+        self.configure(background = 'white')
         icon = PhotoImage(file='icon.png') # Set app icon
         self.tk.call('wm', 'iconphoto', self._w, icon) # Call app icon
 

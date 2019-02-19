@@ -1,4 +1,4 @@
-![alt text](./hashes.png?)
+![alt text](./demo.png)
 
 # hashes.py
 Check if a file hash matches with the file you've got
